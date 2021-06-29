@@ -71,7 +71,7 @@ with open(budget_data_csv, 'r') as csvfile:
             GreatDec = GreatDec
 
         # The total number of months included in the dataset
-        months = months + 1
+        months = np.add(months, 1)
         
         line_value = float(row[1])
         if line_value != 0 and line_val_times < 1:
@@ -114,7 +114,7 @@ print (PyBankSummary)
 #save the data to the text file
 with open("PyBankSummary.txt", "w") as txt_file:
     for line in PyBankSummary:
-        txt_file.write(" ".join(line) + "\n")
+        txt_file.write(line + "\n")
 
 
 # close the text file
