@@ -21,7 +21,7 @@
 
 import os
 import csv
-import numpy as np  
+#import NumPy as np  
 
 total = 0
 
@@ -58,16 +58,6 @@ with open(election_data_csv, 'r') as csvfile:
         print(SumAvgChg)
  
 
-
-a1 = -755566
-a2 = 1170593
-a3 = 999942
-a4 = -1196225
-
-GreatInc = np.subtract(a1, a2)
-GreatDec = np.subtract(a3, a4)
-
-
 print("Election Results")
 print("-------------------------")
 print("Total Votes: " + str(total))
@@ -79,36 +69,3 @@ print("O'Tooley: 3.000% (105630)")
 print("-------------------------")
 print("Winner: Khan")
 print("-------------------------")
-
-#print(intStart)
-#print (sub)
-#print (finalvalue)
-#print (lastline)
-#print (len(lst))
-#print(lst)
-#print(SumAvgChg)
-
-# The total number of months included in the dataset
-
-
-# The net total amount of "Profit/Losses" over the entire period
-
-
-# The average of the changes in "Profit/Losses" over the entire period
-
-
-# The greatest increase in profits (date and amount) over the entire period
-
-
-# The greatest decrease in losses (date and amount) over the entire period
-
-
-# As an example, your analysis should look similar to the one below:
-    # Financial Analysis
-    #----------------------------
-    # Total Months: 86
-    # Total: $38382578
-    # Average  Change: $-2315.12
-    # Greatest Increase in Profits: Feb-2012 ($1926159)
-    # Greatest Decrease in Profits: Sep-2013 ($-2196167)
-# In addition, your final script should both print the analysis to the terminal and export a text file with the results.
