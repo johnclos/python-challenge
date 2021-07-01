@@ -57,14 +57,17 @@ with open(election_data_csv, 'r') as csvfile:
         else:
             r = 1
         
+        # get the number of candidates
         cand_lst_len = len(candidate_list)
+
+        # The total number of votes each candidate won
+        
+
         # The percentage of votes each candidate won
 
 
-        # The total number of votes each candidate won
-
-
         # The winner of the election based on popular vote.
+
 
 
 print ("Election Results")
@@ -82,6 +85,7 @@ print("-------------------------")
 
 print(candidate_list)
 print(cand_lst_len)
+print(cand_vote_count)
 
 # create the text file
 PyPollSummary = ["Election Results",
