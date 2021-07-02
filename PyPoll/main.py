@@ -23,18 +23,27 @@
 
 import os
 import csv
-import pandas as pd  
+import pandas as pd
+from collections import Counter
+from collections import defaultdict
 
 r = 0
 candidate_list = []
 cand_lst_len = 0
 total = 0
 candidate1 = 'a'
+vote_cand_dict = {}
+vote_cand_perc_list = []
+vote_cand_perc =  "{:.1%}".format(0.0)
+winner = 'a'
+vote_cand_values = []
+vote_cand_keys = []
+
 # Path to collect data from the Resources folder
 election_data_csv = os.path.join('Resources', 'election_data.csv')
 
 #headline = lst.next()
-
+# csvrow2 = [row[2] for row in csvreader]
 with open(election_data_csv, 'r') as csvfile:
 
     # Split the data on commas
@@ -43,7 +52,7 @@ with open(election_data_csv, 'r') as csvfile:
     # skip header row
     header = next(csvreader)
 
-    # get the first candidate
+    # get the candidate column only
     
     # Loop through the data
     for row in csvreader:
@@ -61,14 +70,31 @@ with open(election_data_csv, 'r') as csvfile:
         cand_lst_len = len(candidate_list)
 
         # The total number of votes each candidate won
-        
+        # every time we come across a new name not already in dictionary, add a new key for the candidates name
+        if candidate1 not in vote_cand_dict.keys():
+            vote_cand_dict[candidate1] = 1
+        #if they are in the dictionary, increase their vote count by one
+        else:
+            vote_cand_dict[candidate1] += 1
+ 
 
-        # The percentage of votes each candidate won
 
+# loop through the values and convert then to percent
+for x in vote_cand_dict.values():
+    #calculate the percent of the total votes that each candidate received
+    vote_cand_perc = ("{:.1%}".format(x/total))
+    vote_cand_perc_list.append(vote_cand_perc)
 
-        # The winner of the election based on popular vote.
+# create a list of the votes
+vote_cand_values = list(vote_cand_dict.values())
+# create a list of the candidates
+vote_cand_keys = list(vote_cand_dict.keys())
 
+#find the maximum num of votes
+m = max(vote_cand_values)
 
+# find the index for the winner based on the maximum number of votes
+winner = vote_cand_values.index(m)
 
 print ("Election Results")
 print("-------------------------")
@@ -79,20 +105,24 @@ print("Correy: 20.000% (704200)")
 print("Li: 14.000% (492940)")
 print("O'Tooley: 3.000% (105630)")
 print("-------------------------")
-print("Winner: Khan")
+print(f'Winner: ' + vote_cand_keys[winner])
 print("-------------------------")
-
-
-print(candidate_list)
-print(cand_lst_len)
-print(cand_vote_count)
+print(vote_cand_keys)
+print(vote_cand_perc_list)
+print(vote_cand_values)
 
 # create the text file
 PyPollSummary = ["Election Results",
     "-------------------------",
-    "-------------------------"
-    ]
-print (PyPollSummary)
+    "Total Votes: " + str(total),
+    "-------------------------",
+    "Khan: 63.000% (2218231)",
+    "Correy: 20.000% (704200)",
+    "Li: 14.000% (492940)",
+    "O'Tooley: 3.000% (105630)",
+    "-------------------------",
+    f'Winner: ' + vote_cand_keys[winner],
+    "-------------------------"]
 
 open("PyPollSummary.txt", "w")
 # save the data to the text file
