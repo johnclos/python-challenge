@@ -84,7 +84,6 @@ with open(budget_data_csv, 'r') as csvfile:
         SumAvgChg = np.subtract(float(rowvalue2), float(firstvalue))
         DivAvgChg = np.subtract(months, 1)
         AvgChg = np.divide(SumAvgChg, DivAvgChg)
-
         
 GreatIncR = round(GreatInc)
 GreatDecR = round(GreatDec)
@@ -97,8 +96,6 @@ print ("Average  Change: $" + str(round(AvgChg,2)))
 print (f'Greatest Increase in Profits: {GreatIncDate} (${GreatIncR})')
 print (f'Greatest Decrease in Profits: {GreatDecDate} (${GreatDecR})')
 
-#print(PyBankSummary)
-
 # create the text file
 PyBankSummary = ["Financial Analysis",
     "----------------------------",
@@ -109,7 +106,6 @@ PyBankSummary = ["Financial Analysis",
     f'Greatest Decrease in Profits: {GreatDecDate} (${GreatDecR})'
     ]
 
-#open("PyBankSummary.txt", "w")
 #save the data to the text file
 with open("PyBankSummary.txt", "w") as txt_file:
     for line in PyBankSummary:

@@ -122,7 +122,6 @@ PyPollSummary.extend(
     f'Winner: ' + vote_cand_keys[winner],
     "-------------------------"])
 
-open("PyPollSummary.txt", "w")
 # save the data to the text file
 with open("PyPollSummary.txt", "w") as txt_file:
     for line in PyPollSummary:
