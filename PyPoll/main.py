@@ -34,7 +34,7 @@ total = 0
 candidate1 = str
 vote_cand_dict = {}
 vote_cand_perc_list = []
-vote_cand_perc =  "{:.1%}".format(0.0)
+vote_cand_perc =  "{:.3%}".format(0.0)
 winner = str
 vote_cand_values = []
 vote_cand_keys = []
@@ -78,13 +78,11 @@ with open(election_data_csv, 'r') as csvfile:
         #if they are in the dictionary, increase their vote count by one
         else:
             vote_cand_dict[candidate1] += 1
- 
-
 
 # loop through the values and convert then to percent
 for x in vote_cand_dict.values():
     #calculate the percent of the total votes that each candidate received
-    vote_cand_perc = ("{:.1%}".format(x/total))
+    vote_cand_perc = ("{:.3%}".format(x/total))
     vote_cand_perc_list.append(vote_cand_perc)
 
 # create a list of the votes
@@ -111,27 +109,21 @@ for i in range(cand_lst_len):
 print("-------------------------")
 print(f'Winner: ' + vote_cand_keys[winner])
 print("-------------------------")
-# print(vote_cand_keys)
-# print(vote_cand_perc_list)
-#print(vote_cand_summary)
 
 # create the text file
 PyPollSummary = ["Election Results",
     "-------------------------",
     "Total Votes: " + str(total),
-    "-------------------------",
-    #for i in range(cand_lst_len):
-    vote_cand_summary,
-    "-------------------------",
+    "-------------------------",]
+for i in range(cand_lst_len):
+    PyPollSummary.append(vote_cand_summary[i])
+PyPollSummary.extend(   
+    ["-------------------------",
     f'Winner: ' + vote_cand_keys[winner],
-    "-------------------------"]
+    "-------------------------"])
 
 open("PyPollSummary.txt", "w")
 # save the data to the text file
 with open("PyPollSummary.txt", "w") as txt_file:
     for line in PyPollSummary:
         txt_file.write(line + "\n")
-
-
-# close the text file
-#PyPollSummary.close()
