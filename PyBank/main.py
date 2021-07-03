@@ -48,7 +48,7 @@ with open(budget_data_csv, 'r') as csvfile:
     for row in csvreader:
         rowvalue = row[1]
         
-        # The net total amount of "Profit/Losses" over the entire period
+        # The net total amount of "Profit/Losses" from month-to-month over the entire period
         total = np.add(total, float(rowvalue))
 
         #find the current row value and the difference and then store the current value as the previous value        
