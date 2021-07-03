@@ -108,15 +108,9 @@ PyBankSummary = ["Financial Analysis",
     f'Greatest Increase in Profits: {GreatIncDate} (${GreatIncR})',
     f'Greatest Decrease in Profits: {GreatDecDate} (${GreatDecR})'
     ]
-print (PyBankSummary)
 
 #open("PyBankSummary.txt", "w")
 #save the data to the text file
 with open("PyBankSummary.txt", "w") as txt_file:
     for line in PyBankSummary:
         txt_file.write(line + "\n")
-
-
-# close the text file
-#PyBankSummary.close()
- 
