@@ -100,16 +100,19 @@ print ("Election Results")
 print("-------------------------")
 print("Total Votes: " + str(total))
 print("-------------------------")
-print("Khan: 63.000% (2218231)")
-print("Correy: 20.000% (704200)")
-print("Li: 14.000% (492940)")
-print("O'Tooley: 3.000% (105630)")
+#print("Khan: 63.000% (2218231)")
+#print("Correy: 20.000% (704200)")
+#print("Li: 14.000% (492940)")
+#print("O'Tooley: 3.000% (105630)")
+# loop through the candidates and print their name, their vote percent and their number of votes
+for i in range(cand_lst_len):
+    print(f'' + str(vote_cand_keys[i]) + ':  ' + str(vote_cand_perc_list[i]) + ' (' + str(vote_cand_values[i]) + ')')
 print("-------------------------")
 print(f'Winner: ' + vote_cand_keys[winner])
 print("-------------------------")
-print(vote_cand_keys)
-print(vote_cand_perc_list)
-print(vote_cand_values)
+# print(vote_cand_keys)
+# print(vote_cand_perc_list)
+# print(vote_cand_values)
 
 # create the text file
 PyPollSummary = ["Election Results",
