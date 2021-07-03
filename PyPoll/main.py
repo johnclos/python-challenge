@@ -31,13 +31,15 @@ r = 0
 candidate_list = []
 cand_lst_len = 0
 total = 0
-candidate1 = 'a'
+candidate1 = str
 vote_cand_dict = {}
 vote_cand_perc_list = []
 vote_cand_perc =  "{:.1%}".format(0.0)
-winner = 'a'
+winner = str
 vote_cand_values = []
 vote_cand_keys = []
+vote_cand_print = str
+vote_cand_summary = []
 
 # Path to collect data from the Resources folder
 election_data_csv = os.path.join('Resources', 'election_data.csv')
@@ -100,29 +102,26 @@ print ("Election Results")
 print("-------------------------")
 print("Total Votes: " + str(total))
 print("-------------------------")
-#print("Khan: 63.000% (2218231)")
-#print("Correy: 20.000% (704200)")
-#print("Li: 14.000% (492940)")
-#print("O'Tooley: 3.000% (105630)")
 # loop through the candidates and print their name, their vote percent and their number of votes
 for i in range(cand_lst_len):
     print(f'' + str(vote_cand_keys[i]) + ':  ' + str(vote_cand_perc_list[i]) + ' (' + str(vote_cand_values[i]) + ')')
+    vote_cand_print = (f'' + str(vote_cand_keys[i]) + ':  ' + str(vote_cand_perc_list[i]) + ' (' + str(vote_cand_values[i]) + ')')
+    vote_cand_summary.append(vote_cand_print)
+
 print("-------------------------")
 print(f'Winner: ' + vote_cand_keys[winner])
 print("-------------------------")
 # print(vote_cand_keys)
 # print(vote_cand_perc_list)
-# print(vote_cand_values)
+#print(vote_cand_summary)
 
 # create the text file
 PyPollSummary = ["Election Results",
     "-------------------------",
     "Total Votes: " + str(total),
     "-------------------------",
-    "Khan: 63.000% (2218231)",
-    "Correy: 20.000% (704200)",
-    "Li: 14.000% (492940)",
-    "O'Tooley: 3.000% (105630)",
+    #for i in range(cand_lst_len):
+    vote_cand_summary,
     "-------------------------",
     f'Winner: ' + vote_cand_keys[winner],
     "-------------------------"]
