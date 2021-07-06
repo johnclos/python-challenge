@@ -23,7 +23,6 @@
 
 import os
 import csv
-import pandas as pd
 from collections import Counter
 from collections import defaultdict
 
